@@ -56,8 +56,8 @@ Format: Portable (No installation required, single standalone file)
    The encoder requires a stable, standard video stream. If you try to process 
    corrupted files or gameplay clips recorded via Nvidia ShadowPlay with 
    Variable Frame Rate (VFR), FFmpeg may throw a "Corrupt frame detected" error. 
-   👉 NOTE: If the rendering process gets stuck on a broken file and does not close 
-   automatically, click on the application window and press CTRL + C to force stop it.
+   👉 NOTE: If the rendering process gets stuck on a broken file, click on the opened CONSOLE (TERMINAL)
+   window and press CTRL + C to force stop it.
    For flawless rendering, it is highly recommended to record clips via OBS Studio 
    with Constant Framerate (CFR) or pre-convert broken files via HandBrake.
 
@@ -130,8 +130,8 @@ Thank you for using VALENOK! Enjoy and save your time! 🦾
    Если скормить конвертеру повреждённые файлы или клипы "Мгновенного повтора" 
    Nvidia ShadowPlay с переменной частотой кадров (VFR), FFmpeg может выдать ошибку 
    "Corrupt frame detected" и прервать рендер. 
-   👉 ПРИМЕЧАНИЕ: Если процесс рендера намертво завис на битом файле и программа 
-   не закрывается сама — кликните по окну приложения и нажмите CTRL + C для принудительной остановки.
+ 👉 ПРИМЕЧАНИЕ: Если процесс рендера намертво завис на битом файле — кликните по открывшемуся окну
+    КОНСОЛИ (ТЕРМИНАЛА) и нажмите CTRL + C для принудительной остановки.
    Для идеальной работы рекомендуется записывать повторы через OBS Studio с постоянной 
    частотой кадров (CFR) либо предварительно лечить побитые файлы через программу HandBrake.
 
