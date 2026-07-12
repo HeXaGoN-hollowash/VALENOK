@@ -71,7 +71,7 @@ Format: Portable (No installation required, single standalone file)
 
 Thank you for using VALENOK! Enjoy and save your time! 🦾
 
-================================================================================
+============================================================================
 
 РУССКАЯ ВЕРСИЯ / RUSSIAN VERSION
 
