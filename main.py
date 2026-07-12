@@ -41,7 +41,7 @@ LANG_DICT = {
         "btn_music_select": "🎵 Выбрать фоновую музыку",
         "btn_music_ready": "🎵 Музыка: ",
         "lbl_slider_quality_shorts": "⚙️ Настройка Shorts (Меньше значение = Шире обзор / Больше значение = Крупный план):",
-        "lbl_slider_quality_custom": "⚙️ Выбери битрейт (Качество Мбит):",
+        "lbl_slider_quality_custom": "⚙️ Выбери CRF (Меньше значение = Лучше картинка):",
         "lbl_slider_quality_expert": "⚙️ Выбери CRF (Меньше значение = Лучше картинка):",
         "chk_2k": "🚀 Апскейл / Рендер в 2K (1440p) для кодека VP09",
         "msg_ready_title": "Успех!",
@@ -111,7 +111,7 @@ LANG_DICT = {
         "btn_music_select": "🎵 Select Background Music",
         "btn_music_ready": "🎵 Track: ",
         "lbl_slider_quality_shorts": "⚙️ Shorts Setup (Lower value = Wider view / Higher value = Close-up):",
-        "lbl_slider_quality_custom": "⚙️ Select Bitrate (Encoding Quality Mbps):",
+        "lbl_slider_quality_custom": "⚙️ Select CRF (Lower value = Better image):",
         "lbl_slider_quality_expert": "⚙️ Select CRF (Lower value = Better image):",
         "chk_2k": "🚀 Upscale / Render in 2K (1440p) for VP09 Codec",
         "msg_ready_title": "Success!",
@@ -850,13 +850,15 @@ def start_conversion():
     #if music_path and os.path.exists(music_path) and "🔗" not in preset and "🖼️" not in preset and "🎛️" not in preset:
         #cmd += ['-i', music_path]
 
-        # Если выбран режим без фоновой музыки, принудительно очищаем переменную в памяти
+    # Если выбран режим без фоновой музыки, принудительно очищаем переменную в памяти
+    global music_path
     if "🔗" in preset or "🖼️" in preset or "🎛️" in preset:
         music_path = ""
-
+        
     # Теперь базовое условие сработает идеально во всех режимах!
     if music_path and os.path.exists(music_path):
         cmd += ['-i', music_path]
+
 
     # Умная проверка: если пользователь забыл расширение, дописываем его сами
     if not output_file.lower().endswith(('.mp4', '.mkv', '.avi', '.gif','.mov')):
