@@ -23,7 +23,7 @@ if hasattr(sys, '_MEIPASS'):
 
 # --- ИНТЕРФЕЙС ОKНА ---
 root = tk.Tk()
-root.title("VALENOK Video Converter v1.0 (RELEASE)")
+root.title("VALENOK Video Converter v1.1 (Explorer fix)")
 root.geometry("550x440")
 
 # === ГЛОБАЛЬНЫЙ СЛОВАРЬ ЛОКАЛИЗАЦИИ ВЕРСИИ 1.0 GLOBAL ===
@@ -57,7 +57,7 @@ LANG_DICT = {
         "fd_concat_title": "Выбери пачку клипов для мгновенной склейки",
         "lbl_concat_ready": "✅ К склейке готово клипов: ",
         "lbl_settings_hw": "Выбери видеокарту/процессор для рендера:",
-        "lbl_about_title": "VALENOK Видео Конвертер v1",
+        "lbl_about_title": "VALENOK Видео Конвертер v1.1",
         "btn_about_boosty": "◈ ПОДДЕРЖАТЬ АВТОРА НА BOOSTY ◈",
         "btn_about_close": "❌ ЗАКРЫТЬ",
         "fd_all_types": "Все файлы",
@@ -127,7 +127,7 @@ LANG_DICT = {
         "fd_concat_title": "Select a batch of clips for instant merging",
         "lbl_concat_ready": "✅ Ready to merge clips: ",
         "lbl_settings_hw": "Select GPU/CPU for rendering:",
-        "lbl_about_title": "VALENOK Video Converter v1",
+        "lbl_about_title": "VALENOK Video Converter v1.1",
        "btn_about_boosty": "◈ SUPPORT AUTHOR ON BOOSTY ◈",
         "btn_about_close": "❌ CLOSE",
         "fd_all_types": "All Files",
@@ -235,7 +235,7 @@ main_left_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=10)
 def choose_file():
     file_path = filedialog.askopenfilename(
         title=LANG_DICT[current_lang]["fd_video_title"],
-        filetypes=[(LANG_DICT[current_lang]["fd_video_types"], "*.mp4 *.mkv *.avi")]
+        filetypes=[(LANG_DICT[current_lang]["fd_video_types"], "*.mp4 *.mov *.mkv *.avi ")]
     )
     if file_path:
         entry_file.delete(0, tk.END)
@@ -245,7 +245,7 @@ def choose_output_path():
     # Открывает окно сохранения файла Windows
     file_path = filedialog.asksaveasfilename(
         title=LANG_DICT[current_lang]["fd_save_title"],
-        filetypes=[(LANG_DICT[current_lang]["fd_video_types"], "*.mp4 *.mkv *.avi *.gif")]
+        filetypes=[(LANG_DICT[current_lang]["fd_video_types"], "*.mp4 *.mkv *.mov *.avi *.gif")]
     )
     if file_path:
         entry_output.delete(0, tk.END)
@@ -766,12 +766,14 @@ def start_conversion():
             messagebox.showinfo("Nice!", LANG_DICT[current_lang]["msg_concat_success"])
             
             # Автоматически открываем проводник Windows и ювелирно выделяем мышкой готовый `.mp4`!
-            try:
-                win_output_path = os.path.abspath(output_file).replace("/", "\\")
-                subprocess.run(['explorer', '/select,', win_output_path])
-            except:
-                pass
-                
+            #try:
+                #win_output_path = os.path.abspath(output_file).replace("/", "\\")
+                #subprocess.run(['explorer', '/select,', win_output_path])
+            #except:
+                #pass
+
+                    # Автоматически открываем папку с готовым результатом без дублирования проводника
+            os.startfile(os.path.dirname(os.path.abspath(output_file)))     
             return
 
         except Exception as e:
@@ -845,11 +847,19 @@ def start_conversion():
 
         # === ДОБАВЛЕНИЕ ВТОРОГО ИСТОЧНИКА ЗВУКА СТРОГО ПОД ВИДЕО ИГРЫ (ВЕРСИЯ 0.8) ===
     # Теперь игра ВСЕГДА будет файлом, тайминги режут её идеально, а музыка ВСЕГДА будет файлом!
-    if music_path and os.path.exists(music_path) and "🔗" not in preset and "🖼️" not in preset:
+    #if music_path and os.path.exists(music_path) and "🔗" not in preset and "🖼️" not in preset and "🎛️" not in preset:
+        #cmd += ['-i', music_path]
+
+        # Если выбран режим без фоновой музыки, принудительно очищаем переменную в памяти
+    if "🔗" in preset or "🖼️" in preset or "🎛️" in preset:
+        music_path = ""
+
+    # Теперь базовое условие сработает идеально во всех режимах!
+    if music_path and os.path.exists(music_path):
         cmd += ['-i', music_path]
 
     # Умная проверка: если пользователь забыл расширение, дописываем его сами
-    if not output_file.lower().endswith(('.mp4', '.mkv', '.avi', '.gif')):
+    if not output_file.lower().endswith(('.mp4', '.mkv', '.avi', '.gif','.mov')):
         if "🖼️" in preset:
             output_file += ".gif"
         else:
@@ -1043,9 +1053,9 @@ def start_conversion():
 
         # Открываем папку с проводником, ТОЛЬКО если файл реально создался успешно!
         if success:
-            abs_output_path = os.path.abspath(output_file).replace('/', '\\')
-            subprocess.Popen(f'explorer.exe /select,"{abs_output_path}"')
-
+            #abs_output_path = os.path.abspath(output_file).replace('/', '\\')
+            #subprocess.Popen(f'explorer.exe /select,"{abs_output_path}"')
+            os.startfile(os.path.dirname(os.path.abspath(output_file)))
 
     except Exception as e:
         root.deiconify()
