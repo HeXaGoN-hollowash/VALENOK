@@ -1,15 +1,15 @@
-================================================================================
+
 🚀 VALENOK Video Converter & Clipper v1.0.1 🚀
-================================================================================
+
 Author: .HeXaGoN. / hollowash
 Studio: Hex Wasteland Project
 License: MIT (Open Source & Free Software)
 Core Engine: Powered by FFmpeg (https://ffmpeg.org)
 Format: Portable (No installation required, single standalone file)
 
-================================================================================
+
 📋 CONVERSION MODES (PRESETS) OVERVIEW:
-================================================================================
+
 🔗 Clip Stitching   - Merges multiple selected video files into one monolithic video.
 🚀 YouTube/Standard - Fast video clipping without quality loss, optimized for standard players.
 🔥 Shorts/TikTok    - Cuts and automatically reformats videos into vertical aspect ratios.
@@ -22,9 +22,9 @@ Format: Portable (No installation required, single standalone file)
                       Recommended for 1920x1080 videos with a duration of up to 30 seconds.
                       If the duration is longer, the output file will 100% exceed the Discord limit.
 
-================================================================================
+
 ⚠️ IMPORTANT FEATURES AND USAGE RULES:
-================================================================================
+
 1. Smart Timestamp Protection:
    The app automatically validates clipping timestamps before starting the render. 
    If the START time is greater than or equal to the END time, the software blocks 
@@ -62,9 +62,9 @@ Format: Portable (No installation required, single standalone file)
    with Constant Framerate (CFR) or pre-convert broken files via HandBrake.
 
 
-================================================================================
+
 🎧 AUDIO ACCOMPANIMENT:
-================================================================================
+
 🔊 ready.wav - Victory sound effect played upon successful render completion.
 🔊 error.wav - Played during critical errors or when empty files are detected.
 
@@ -72,18 +72,17 @@ Format: Portable (No installation required, single standalone file)
 Thank you for using VALENOK! Enjoy and save your time! 🦾
 
 ================================================================================
-================================================================================
+
 РУССКАЯ ВЕРСИЯ / RUSSIAN VERSION
-================================================================================
-================================================================================
+
 Автор: .HeXaGoN. / hollowash
 Студия: Hex Wasteland Project
 Лицензия: MIT (Открытый и бесплатный софт)
 Основной движок: Работает на базе FFmpeg (https://ffmpeg.org)
 Формат: Portable (Работает без установки, один файл)
-================================================================================
+
 📋 ОБЗОР РЕЖИМОВ (ПРЕСЕТОВ):
-================================================================================
+
 🔗 Сшивание клипов - Склеивает несколько выбранных видео в один монолитный файл.
 🚀 YouTube/Стандарт - Быстрая обрезка видео без потери качества под стандартный плеер.
 🔥 Shorts/TikTok    - Нарезка вертикальных видео с автоматическим изменением формата.
@@ -94,9 +93,9 @@ Thank you for using VALENOK! Enjoy and save your time! 🦾
 👾 Discord режим    - Ужимает видео по качеству до лимита Discord в 20 Мб. Рекомендуется использовать видео разрешением 1920x1080, длительностью до 30 секунд.
                      Если длительность будет выше, выйдет файл 100% не по лимиту Discord.
 
-================================================================================
+
 ⚠️ ВАЖНЫЕ ОСОБЕННОСТИ И ПРАВИЛА ИСПОЛЬЗОВАНИЯ:
-================================================================================
+
 1. Умная защита таймингов:
    Программа автоматически проверяет время обрезки перед запуском рендера. 
    Если время НАЧАЛА больше или равно времени КОНЦА, софт заблокирует запуск 
@@ -135,9 +134,9 @@ Thank you for using VALENOK! Enjoy and save your time! 🦾
    Для идеальной работы рекомендуется записывать повторы через OBS Studio с постоянной 
    частотой кадров (CFR) либо предварительно лечить побитые файлы через программу HandBrake.
 
-================================================================================
+
 🎧 ЗВУКОВОЕ СОПРОВОЖДЕНИЕ:
-================================================================================
+
 🔊 ready.wav — Победный звуковой сигнал об успешном окончании рендера.
 🔊 error.wav — Воспроизводится при критических ошибках или пустых файлах.
 
